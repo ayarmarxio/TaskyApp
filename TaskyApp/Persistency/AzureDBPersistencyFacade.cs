@@ -13,13 +13,14 @@ namespace TaskyApp.Persistency
     public class AzureDbPersistencyFacade<T>
     {
         private const string _serverUrl = "https://taskywebservice20180605122335.azurewebsites.net";
-        private HttpClientHandler _httpClientHandler = new HttpClientHandler() { UseDefaultCredentials = true };
+        private HttpClientHandler _httpClientHandler;
         private HttpClient _httpClient;
 
         public AzureDbPersistencyFacade()
         {
-            
+            _httpClientHandler = new HttpClientHandler() { UseDefaultCredentials = true };
         }
+
         //public async Task<ObservableCollection<T>> LoadFromAzure()
         //{
         //    using (_httpClient = new HttpClient(_httpClientHandler))
